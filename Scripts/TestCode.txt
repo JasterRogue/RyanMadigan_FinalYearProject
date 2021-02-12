@@ -1,0 +1,46 @@
+#Automate the process of finding lines on the image
+# Equation of a line = y - y1 = m(x - x1)
+# Test image is 492 X 310
+# Pixel count starts at (0,0)
+# imageWidth is finalX, imageHeight is finalY 
+# First line starts at (0,0). Increase X by 1 each time and leave Y. 
+# y1 = 0,  x1 will start at 0 and increase each time
+# Slope has to be calculated before. 
+# Points are (0,0) and (426, 309)
+# Calculate the y value to get the end y point
+# Put through breshenham algorithm to sort out points
+# Then put points into loop grabbing the g value and adding it to an array to store. 
+m = (309 - 0)/(426 - 0)
+y1 = 0
+x1 = 0
+x = imageWidth
+# y = to be calculated
+# To calculate y use Y = m * (x - x1) + y1
+image = Image.open('blur2.jpg')
+imageWidth, imageHeight = image.size
+
+#First calculate y 
+y = m * (x - x1) + y1
+y = round(y)
+
+# Put points through breshenham algorithm 
+points = breshenham(x1, y1, x, y)
+
+# Put line in g for loop
+vals = gValueLoop(points)
+
+#Calculate y val 
+y = m * (x - x1) + y1
+y = round(y)
+#Put points in breshenham method
+points = breshenham(x1, y1, x, y)
+#Put list into g value loop
+gVals = []
+gVals = gValueLoop(points)
+
+image = Image.open('blur2.jpg')
+imageWidth, imageHeight = image.size
+m = (309 - 0)/(426 - 0)
+y1 = 0
+x1 = 0
+x = imageWidth    
