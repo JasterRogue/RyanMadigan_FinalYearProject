@@ -1,0 +1,52 @@
+#Set tile widht and legnth to the value that was determined earlier
+#tileWidth = 38.6
+#tileLength = 38.6
+
+tileWidth = 19
+tileLength = 19
+
+twodArray = []
+rgbValue = (0,0,0) 
+rgbList = []
+xVals = []
+yVals = []
+
+#Import image, image has buildings but does not show full map
+base = Image.open('loadedBaseHalf.jpg')
+#height value will change through trial and error
+height = 1
+#Test Coordinates = (524, 218) - Center of object
+#Test Coordinates = (524, 240) - Bottom Corner of object
+#Test Coordinates = (479, 207) - Left corner of object
+
+#Image to draw on for testing 
+newImg = ImageDraw.Draw(base)
+
+testX = 524
+testY = 218
+
+pixelX = 0
+pixelY = 0
+
+#i = 0
+#j = 0
+
+for i in range(-2, 2):
+    for j in range(-1, 3):
+        
+        imgX, imgY = pixel_position_for_tile([524, 218], i, j)
+        pixelX, pixelY = pixel_position_for_tile([524, 218], i, j)
+        twodArray.append([pixelX, pixelY])
+        #xVals.append(pixelX)
+        #yVals.append(pixelY)
+        
+        eX, eY = 5,5 #size of bounding box
+        boundingBox = (imgX - eX/3, imgY - eY/3, imgX + eX/3, imgY + eY/3)
+        
+        newImg.ellipse(boundingBox, fill="blue")
+        print(pixel_position_for_tile([524, 218], i, j))
+        rgbValue = base.getpixel(pixel_position_for_tile([524,218], i, j))
+        
+
+base.show()
+        
