@@ -3,3 +3,6 @@ https://stackoverflow.com/questions/52797615/find-rectangle-in-image-and-extract
 
 Shape Detection tutorial
 https://www.pyimagesearch.com/2016/02/08/opencv-shape-detection/
+
+Extarct pixels from image and convert to pandas dataframe
+https://stackoverflow.com/questions/58669471/extract-pixels-from-a-pmg-file-and-convert-them-into-a-pandas-data-frame
